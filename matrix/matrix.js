@@ -5,20 +5,16 @@
 
 export class Matrix {
   constructor(str) {
-    this.str = str
-      .split('\n')
-      .map((row) => row.split(' ').map((el) => +el));
+    this.str = str;
   }
 
   get rows() {
-    return this.str;
+    return this.str.split('\n').map((row) => row.split(' ').map((el) => +el));
   }
 
-  columns(col) {
-    let res = [];
-    this.str.forEach((arr) => {
-      res.push(arr[col]);
-    });
-    return res;
+  get columns() {
+    return this.rows[0].map((_element, index) =>
+      this.rows.map((row) => row[index])
+    );
   }
 }
