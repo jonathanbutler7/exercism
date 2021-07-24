@@ -9,7 +9,7 @@ export class Matrix {
   }
 
   get rows() {
-    return this.str.split('\n').map((row) => row.split(' ').map((el) => +el));
+    return this.str.split('\n').map((row) => row.split(' ').map(Number));
   }
 
   get columns() {
