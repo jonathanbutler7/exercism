@@ -5,16 +5,13 @@
 
 export const isPangram = (str) => {
   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-  str.split('').forEach((char) => {
-    let i = alphabet.indexOf(char.toLowerCase());
-    if (i > -1) {
-      alphabet = alphabet.replace(alphabet[i], '');
+  let counter = str.length;
+  while (alphabet.length >= 0) {
+    if (counter === 0 || alphabet.length === 0) break;
+    if (str.toLowerCase().indexOf(alphabet[0]) !== -1) {
+      alphabet = alphabet.replace(alphabet[0], '');
     }
-  });
+    counter--;
+  }
   return alphabet.length === 0;
-  // let newStr = str.toLowerCase()
-  // for (let i = 0; i < alphabet.length; i++) {
-  //   if (!newStr.includes(alphabet[i].toLowerCase())) return false;
-  // }
-  // return true;
 };
